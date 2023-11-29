@@ -17,8 +17,8 @@ jobs:
       - name: multline run
         run: |
           echo running a multiline step
-          echo mkdir gagandeep
-          echo cd gagandeep
+          echo mkdir roy
+          echo cd roy
           echo touch file1
   job2:
     runs-on: ubuntu-latest
