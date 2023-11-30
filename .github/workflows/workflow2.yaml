@@ -10,19 +10,20 @@ env:
 jobs:
   ubuntu_hello:
     runs-on: ubuntu-latest
+    environment: dev
     env:
       name: Gan
     steps:
       - run: | 
-          echo "Hello World from $name !!"
+          echo "Hello World from $name ${{ vars.LAST_NAME }}. Welcome to ${{ vars.db_server }} !!"
         env: 
           name: anup
-      - run: echo "🎉 The job was automatically triggered by $name a ${{ github.event_name }} event"
+      - run: echo "🎉 The job was automatically triggered by $name ${{ vars.LAST_NAME }} a ${{ github.event_name }} event"
       - run: echo "🐧 This job is now running on ${{ runner.name }} which is a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "GitHub Repository URL is ${{ github.repositoryUrl}} and branch is ${{ github.ref_name }} "
-  
+
   job2:
     runs-on: ubuntu-latest
+    environment: prod
     steps:
-      - run: echo "hello from $name !"
-      - run: echo "Hello World from $name ${{ vars.LAST_NAME }} !!"
+      - run: echo "hello from $name !. Welcome to ${{ vars.db_server }} "
