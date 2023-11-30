@@ -6,27 +6,27 @@ on:
   push:
     branches: 
       - main
-env:
-  var1: value1
 jobs:
   build-job:
     runs-on: ubuntu-latest
     env:
-      last_name: gan
+      last_name: Gan
     steps:
       - name: first step
         run: hostname
+        if: runner.os == 'Windows'
       - name: sleep for 60 seconds
         run: echo "Firstname is $first_name. Last name is $last_name"
         env:
-          first_name: roy
+          first_name: Roy
         if: github.event_name == 'push'
       - name: multline run
         run: |
           echo running a multiline step
-          echo mkdir roy
+          echo mkdir roygan
           echo "Firstname is $first_name. Last name is $last_name"
           echo touch file1
+        if: runner.os != 'Windows'
   job2:
     runs-on: ubuntu-latest
     steps:
