@@ -5,13 +5,13 @@ on:
     branches:
       - main
 env:
-  name: Gagandeep
+  name: Roy
   
 jobs:
   ubuntu_hello:
     runs-on: ubuntu-latest
     env:
-      name: sandeep
+      name: Gan
     steps:
       - run: | 
           echo "Hello World from $name !!"
