@@ -21,6 +21,7 @@ jobs:
       - run: echo "🎉 The job was automatically triggered by $name ${{ vars.LAST_NAME }} a ${{ github.event_name }} event"
       - run: echo "🐧 This job is now running on ${{ runner.name }} which is a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "GitHub Repository URL is ${{ github.repositoryUrl}} and branch is ${{ github.ref_name }} "
+      - run: echo "Repo Password is ${{ secrets.repo_passwd }} and DB passwd is ${{ secrets.db_passwd }} "
 
   job2:
     runs-on: ubuntu-latest
