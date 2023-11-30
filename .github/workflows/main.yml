@@ -10,16 +10,18 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    continue-on-error: true
     env:
       last_name: Gan
     steps:
       - name: first step
-        run: hostname
+        run: hotname
         if: runner.os == 'Windows'
       - name: sleep for 10 seconds
         run: |
           sleep 10
-          echo "Firstname is $first_name. Last name is $last_name"
+          continue-on-error: true
+          eco "Firstname is $first_name. Last name is $last_name"
         env:
           first_name: Roy
         if: github.event_name == 'push'
@@ -50,3 +52,4 @@ jobs:
       - name: sleep for 10 seconds
         run: sleep 10
     needs: test
+    if: ${{ always () }}
