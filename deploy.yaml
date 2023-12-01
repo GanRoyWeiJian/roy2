@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: roy-app-deployment
+  labels:
+    app: royapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: royapp
+  template:
+    metadata:
+      labels:
+        app: royapp
+    spec:
+      containers:
+      - name: gdcontainer
+        image: gagandeepgawri/intel:v1
+        ports:
+        - containerPort: 80
